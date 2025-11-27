@@ -1,0 +1,577 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'swc-dark': '#151719',
+                    'swc-green': '#1f5731',
+                    'swc-green-light': '#2d7a44',
+                    'swc-gold': '#d4af37',
+                    'swc-gold-hover': '#b5952f',
+                    'swc-paper': '#fbf3e4',
+                },
+                fontFamily: {
+                    'heading': ['Kodchasan', 'sans-serif'],
+                    'body': ['Sarabun', 'sans-serif'],
+                    'hand': ['Charm', 'cursive'],
+                }
+            }
+        }
+    }
+</script>
+
+<style>
+    /* Custom Scrollbar for Textarea */
+    #gb-message::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #gb-message::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    #gb-message::-webkit-scrollbar-thumb {
+        background: #d4af37;
+        border-radius: 4px;
+    }
+
+    /* Tape Effect */
+    .tape-effect {
+        background-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+        border-left: 1px dashed rgba(255, 255, 255, 0.3);
+        border-right: 1px dashed rgba(255, 255, 255, 0.3);
+    }
+
+    /* Pin Effect */
+    .pin-head {
+        background: radial-gradient(circle at 30% 30%, #ff6b6b, #c0392b);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Paper Texture for Cards */
+    .paper-texture {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    }
+</style>
+
+<section id="guestbook" class="py-24 relative overflow-hidden min-h-screen flex flex-col bg-[#e8dcca]">
+    <script>console.log('Guestbook component loaded');</script>
+    <!-- Background Texture -->
+    <div class="absolute inset-0 opacity-40 pointer-events-none"
+        style="background-image: url('https://www.transparenttextures.com/patterns/cork-board.png');"></div>
+
+    <div class="max-w-6xl mx-auto px-4 relative z-10 w-full">
+        <div class="text-center mb-16" data-aos="fade-down">
+            <div class="inline-block relative">
+                <h2 class="text-5xl md:text-6xl font-heading text-swc-gold drop-shadow-lg mb-2">Memory Wall</h2>
+                <div class="h-1 w-full bg-swc-gold/30 rounded-full"></div>
+                <div class="absolute -top-6 -right-8 text-swc-green transform rotate-12 opacity-80">
+                    <i class="fas fa-thumbtack text-3xl"></i>
+                </div>
+            </div>
+            <p class="text-swc-paper/70 mt-6 text-lg font-hand tracking-wide">
+                "ทุกข้อความคือความทรงจำ... ที่เราจะเก็บไว้ตลอดไป"
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <!-- Left Column: Write Message Form -->
+            <div class="lg:col-span-4 sticky top-24" data-aos="fade-right">
+                <div
+                    class="bg-[#fbf3e4] text-swc-dark p-1 rounded-lg shadow-[0_10px_40px_rgba(0,0,0,0.3)] transform -rotate-1">
+                    <div
+                        class="border-2 border-dashed border-swc-dark/20 p-6 rounded-lg h-full relative overflow-hidden">
+                        <!-- Tape Effect -->
+                        <div
+                            class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-32 h-8 tape-effect rotate-1 z-10">
+                        </div>
+                        <script src="https://cdn.tailwindcss.com"></script>
+                        <script>
+                            tailwind.config = {
+                                theme: {
+                                    extend: {
+                                        colors: {
+                                            'swc-dark': '#151719',
+                                            'swc-green': '#1f5731',
+                                            'swc-green-light': '#2d7a44',
+                                            'swc-gold': '#d4af37',
+                                            'swc-gold-hover': '#b5952f',
+                                            'swc-paper': '#fbf3e4',
+                                        },
+                                        fontFamily: {
+                                            'heading': ['Kodchasan', 'sans-serif'],
+                                            'body': ['Sarabun', 'sans-serif'],
+                                            'hand': ['Charm', 'cursive'],
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+
+                        <style>
+                            /* Custom Scrollbar for Textarea */
+                            #gb-message::-webkit-scrollbar {
+                                width: 8px;
+                            }
+
+                            #gb-message::-webkit-scrollbar-track {
+                                background: rgba(0, 0, 0, 0.05);
+                            }
+
+                            #gb-message::-webkit-scrollbar-thumb {
+                                background: #d4af37;
+                                border-radius: 4px;
+                            }
+
+                            /* Tape Effect */
+                            .tape-effect {
+                                background-color: rgba(255, 255, 255, 0.3);
+                                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                                backdrop-filter: blur(2px);
+                                border-left: 1px dashed rgba(255, 255, 255, 0.3);
+                                border-right: 1px dashed rgba(255, 255, 255, 0.3);
+                            }
+
+                            /* Pin Effect */
+                            .pin-head {
+                                background: radial-gradient(circle at 30% 30%, #ff6b6b, #c0392b);
+                                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+                            }
+
+                            /* Paper Texture for Cards */
+                            .paper-texture {
+                                background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+                            }
+                        </style>
+
+                        <section id="guestbook"
+                            class="py-24 relative overflow-hidden min-h-screen flex flex-col bg-[#e8dcca]">
+                            <script>console.log('Guestbook component loaded');</script>
+                            <!-- Background Texture -->
+                            <div class="absolute inset-0 opacity-40 pointer-events-none"
+                                style="background-image: url('https://www.transparenttextures.com/patterns/cork-board.png');">
+                            </div>
+
+                            <div class="max-w-6xl mx-auto px-4 relative z-10 w-full">
+                                <div class="text-center mb-16" data-aos="fade-down">
+                                    <div class="inline-block relative">
+                                        <h2 class="text-5xl md:text-6xl font-heading text-swc-gold drop-shadow-lg mb-2">
+                                            Memory Wall</h2>
+                                        <div class="h-1 w-full bg-swc-gold/30 rounded-full"></div>
+                                        <div
+                                            class="absolute -top-6 -right-8 text-swc-green transform rotate-12 opacity-80">
+                                            <i class="fas fa-thumbtack text-3xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-swc-paper/70 mt-6 text-lg font-hand tracking-wide">
+                                        "ทุกข้อความคือความทรงจำ... ที่เราจะเก็บไว้ตลอดไป"
+                                    </p>
+                                </div>
+
+                                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                                    <!-- Left Column: Write Message Form -->
+                                    <div class="lg:col-span-4 sticky top-24" data-aos="fade-right">
+                                        <div
+                                            class="bg-[#fbf3e4] text-swc-dark p-1 rounded-lg shadow-[0_10px_40px_rgba(0,0,0,0.3)] transform -rotate-1">
+                                            <div
+                                                class="border-2 border-dashed border-swc-dark/20 p-6 rounded-lg h-full relative overflow-hidden">
+                                                <!-- Tape Effect -->
+                                                <div
+                                                    class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-32 h-8 tape-effect rotate-1 z-10">
+                                                </div>
+
+                                                <h3
+                                                    class="font-heading text-2xl font-bold text-swc-green mb-6 text-center">
+                                                    <i class="fas fa-pen-fancy mr-2"></i>เขียนถึง
+                                                </h3>
+
+                                                <form id="guestbook-form" onsubmit="handleGuestbookSubmit(event)"
+                                                    class="space-y-5">
+                                                    <div class="space-y-1">
+                                                        <label
+                                                            class="text-xs font-bold text-swc-dark/50 uppercase tracking-wider ml-1">From</label>
+                                                        <div class="flex items-center gap-2">
+                                                            <input type="text" id="gb-name" placeholder="ชื่อของคุณ..."
+                                                                class="flex-1 bg-white/50 border-b-2 border-swc-dark/10 focus:border-swc-gold px-3 py-2 text-lg font-hand text-swc-dark placeholder-swc-dark/30 outline-none transition-colors"
+                                                                required>
+                                                            <div class="flex items-center gap-1">
+                                                                <input type="checkbox" id="gb-anon"
+                                                                    class="w-4 h-4 accent-swc-gold cursor-pointer">
+                                                                <label for="gb-anon"
+                                                                    class="text-xs text-swc-dark/70 cursor-pointer select-none">ไม่ระบุชื่อ</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="space-y-1">
+                                                        <label
+                                                            class="text-xs font-bold text-swc-dark/50 uppercase tracking-wider ml-1">Role</label>
+                                                        <div class="relative">
+                                                            <select id="gb-role"
+                                                                class="w-full bg-white/50 border-b-2 border-swc-dark/10 focus:border-swc-gold px-3 py-2 text-base font-body text-swc-dark outline-none transition-colors appearance-none cursor-pointer">
+                                                                <option value="friend">เพื่อน (Friend)</option>
+                                                                <option value="junior">รุ่นน้อง (Junior)</option>
+                                                                <option value="teacher">คุณครู (Teacher)</option>
+                                                                <option value="secret">ผู้หวังดี (Secret)</option>
+                                                            </select>
+                                                            <i
+                                                                class="fas fa-chevron-down absolute right-3 top-3 text-swc-dark/30 pointer-events-none"></i>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="space-y-1 pt-2">
+                                                        <label
+                                                            class="text-xs font-bold text-swc-dark/50 uppercase tracking-wider ml-1">Message</label>
+                                                        <textarea id="gb-message" rows="5" placeholder="อยากบอกอะไร..."
+                                                            class="w-full bg-white/50 border border-swc-dark/10 rounded-lg p-4 text-lg font-hand text-swc-dark placeholder-swc-dark/30 focus:border-swc-gold outline-none transition-all resize-none leading-relaxed"
+                                                            style="background-image: linear-gradient(transparent, transparent 29px, rgba(0,0,0,0.05) 30px); background-size: 100% 30px; line-height: 30px;"
+                                                            required></textarea>
+                                                    </div>
+
+                                                    <div class="space-y-1">
+                                                        <label
+                                                            class="text-xs font-bold text-swc-dark/50 uppercase tracking-wider ml-1">Photo
+                                                            (Optional)</label>
+                                                        <div class="relative group">
+                                                            <input type="file" id="gb-image" accept="image/*"
+                                                                class="hidden" onchange="previewImage(this)">
+                                                            <label for="gb-image"
+                                                                class="flex items-center justify-center w-full h-12 border-2 border-dashed border-swc-dark/20 rounded-lg cursor-pointer hover:border-swc-gold hover:bg-white/50 transition-all">
+                                                                <span
+                                                                    class="text-swc-dark/50 text-sm group-hover:text-swc-gold transition-colors">
+                                                                    <i class="fas fa-camera mr-2"></i>แนบรูปภาพ
+                                                                </span>
+                                                            </label>
+                                                            <!-- Preview Container -->
+                                                            <div id="image-preview-container"
+                                                                class="hidden mt-2 relative">
+                                                                <img id="image-preview" src="" alt="Preview"
+                                                                    class="w-full h-32 object-cover rounded-lg border border-swc-dark/10">
+                                                                <button type="button" onclick="clearImage()"
+                                                                    class="absolute top-1 right-1 bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs shadow-md hover:bg-red-600 transition-colors">
+                                                                    <i class="fas fa-times"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <button type="submit"
+                                                        class="w-full bg-swc-dark text-swc-gold font-heading py-3 rounded-lg hover:bg-swc-green transition-all shadow-lg flex items-center justify-center gap-2 group mt-4">
+                                                        <span>แปะข้อความ</span>
+                                                        <i
+                                                            class="fas fa-paper-plane group-hover:translate-x-1 transition-transform"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Right Column: Message Wall -->
+                                    <div class="lg:col-span-8">
+                                        <div id="guestbook-list" class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-20">
+                                            <!-- Loading State -->
+                                            <div
+                                                class="col-span-full flex flex-col items-center justify-center py-20 text-swc-gold/50">
+                                                <i class="fas fa-circle-notch fa-spin text-4xl mb-4"></i>
+                                                <p class="font-heading">กำลังรวบรวมความทรงจำ...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <script>
+                            document.addEventListener('DOMContentLoaded', () => {
+                                loadGuestbook(); // Load guestbook data
+
+                                // Auto-refresh guestbook every 10 seconds
+                                setInterval(() => {
+                                    loadGuestbook(true);
+                                }, 10000);
+                            });
+
+                            function timeAgo(date) {
+                                const seconds = Math.floor((new Date() - date) / 1000);
+                                let interval = seconds / 31536000;
+                                if (interval > 1) return Math.floor(interval) + " ปีที่แล้ว";
+                                interval = seconds / 2592000;
+                                if (interval > 1) return Math.floor(interval) + " เดือนที่แล้ว";
+                                interval = seconds / 86400;
+                                if (interval > 1) return Math.floor(interval) + " วันที่แล้ว";
+                                interval = seconds / 3600;
+                                if (interval > 1) return Math.floor(interval) + " ชั่วโมงที่แล้ว";
+                                interval = seconds / 60;
+                                if (interval > 1) return Math.floor(interval) + " นาทีที่แล้ว";
+                                return "เมื่อสักครู่";
+                            }
+
+                            function loadGuestbook(isRefresh = false) {
+                                const list = document.getElementById('guestbook-list');
+                                if (!list) return;
+
+                                // Only show loading on first load
+                                if (!isRefresh && list.children.length <= 1 && list.querySelector('.fa-circle-notch')) {
+                                    // Keep loading spinner
+                                }
+
+                                if (typeof google !== 'undefined' && google.script) {
+                                    google.script.run
+                                        .withSuccessHandler(renderGuestbook)
+                                        .withFailureHandler(error => {
+                                            console.error('Error:', error);
+                                            if (!isRefresh) list.innerHTML = '<div class="col-span-full text-center text-red-400">โหลดข้อมูลไม่สำเร็จ</div>';
+                                        })
+                                        .getGuestbookData();
+                                } else {
+                                    if (typeof GAS_WEB_APP_URL === 'undefined' || !GAS_WEB_APP_URL) {
+                                        onFailure("Missing Web App URL");
+                                        return;
+                                    }
+
+                                    fetch(GAS_WEB_APP_URL, {
+                                        method: 'POST',
+                                        body: JSON.stringify(payload)
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+                                            if (result.result === 'success') onSuccess();
+                                            else onFailure(result.error);
+                                        })
+                                        .catch(onFailure);
+                                }
+                            }
+
+                            function renderGuestbook(data) {
+                                const list = document.getElementById('guestbook-list');
+                                if (!list) return;
+
+                                if (!data || data.length === 0) {
+                                    list.innerHTML = `
+                <div class="col-span-full text-center py-12 opacity-50">
+                    <i class="fas fa-pen-alt text-4xl mb-4 text-swc-gold"></i>
+                    <p class="text-swc-paper">ยังไม่มีข้อความ... มาเขียนคนแรกกันเถอะ!</p>
+                </div>`;
+                                    return;
+                                }
+
+                                // Simple diff check: if count matches, assume same (for demo simplicity)
+                                // Ideally should check IDs, but full re-render is safer for now to update timestamps
+                                list.innerHTML = '';
+
+                                data.forEach((item, index) => {
+                                    const div = createGuestbookItem(item.name, item.role, item.message, new Date(item.timestamp), index, item.imageUrl);
+                                    list.appendChild(div);
+                                });
+                            }
+
+                            function createGuestbookItem(name, role, message, timestamp, index = 0, imageUrl = "") {
+                                const div = document.createElement('div');
+                                // Random rotation between -2 and 2 degrees, slightly offset by index
+                                const rotate = (Math.random() * 4 - 2).toFixed(1);
+
+                                div.className = "bg-[#fbf3e4] text-swc-dark p-6 rounded-sm shadow-md relative transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:z-10 group cursor-default break-inside-avoid paper-texture";
+                                div.style.transform = `rotate(${rotate}deg)`;
+                                div.setAttribute('data-aos', 'fade-up');
+                                div.setAttribute('data-aos-delay', (index % 5) * 100); // Stagger animations
+
+                                // Role Badge Color
+                                let badgeColor = "bg-swc-dark text-swc-gold";
+                                if (role === 'teacher') badgeColor = "bg-swc-gold text-swc-dark";
+                                if (role === 'junior') badgeColor = "bg-swc-green text-white";
+                                if (role === 'secret') badgeColor = "bg-pink-500 text-white";
+
+                                div.innerHTML = `
+            <!-- Pin/Tape -->
+            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full pin-head z-10 border border-red-800 opacity-90"></div>
+            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 w-1 h-2 bg-black/20 blur-[1px]"></div>
+
+            <div class="relative z-0 h-full rounded-sm">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-swc-dark/40">${timeAgo(timestamp)}</span>
+                    <span class="${badgeColor} text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wide shadow-sm">${role}</span>
+                </div>
+                
+                ${imageUrl ? `
+                <div class="mb-4 -mx-2">
+                    <div class="bg-white p-2 shadow-sm transform rotate-1">
+                        <img src="${imageUrl}" alt="Attached Image" class="w-full h-40 object-cover filter sepia-[.3] contrast-[.9]">
+                    </div>
+                </div>
+                ` : ''}
+
+                <p class="font-hand text-xl md:text-2xl font-bold leading-relaxed text-swc-dark/90 mb-6 min-h-[60px]">
+                    "${message}"
+                </p>
+
+                <div class="flex items-center gap-3 border-t-2 border-dashed border-swc-dark/10 pt-3 mt-auto">
+                    <div class="w-8 h-8 rounded-full bg-swc-dark/10 flex items-center justify-center text-swc-dark font-heading font-bold text-sm">
+                        ${name.charAt(0).toUpperCase()}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <p class="font-heading font-bold text-sm truncate text-swc-green">${name}</p>
+                    </div>
+                    <i class="fas fa-heart text-swc-dark/10 group-hover:text-red-500 transition-colors duration-300"></i>
+                </div>
+            </div>
+        `;
+                                return div;
+                            }
+
+                            async function handleGuestbookSubmit(e) {
+                                e.preventDefault();
+                                const btn = e.target.querySelector('button[type="submit"]');
+                                const originalBtnContent = btn.innerHTML;
+
+                                // Set loading state
+                                btn.disabled = true;
+                                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> กำลังแปะ...';
+
+                                let name = document.getElementById('gb-name').value;
+                                const isAnon = document.getElementById('gb-anon').checked;
+                                if (isAnon) name = "ไม่ประสงค์ออกนาม";
+
+                                const roleSelect = document.getElementById('gb-role');
+                                const role = roleSelect.options[roleSelect.selectedIndex].value; // Use value for logic
+                                const message = document.getElementById('gb-message').value;
+                                const imageInput = document.getElementById('gb-image');
+
+                                let imageBase64 = "";
+                                if (imageInput.files && imageInput.files[0]) {
+                                    try {
+                                        imageBase64 = await resizeImage(imageInput.files[0]);
+                                    } catch (err) {
+                                        console.error("Image processing error:", err);
+                                        onFailure("เกิดข้อผิดพลาดในการประมวลผลรูปภาพ");
+                                        return;
+                                    }
+                                }
+
+                                const payload = { name, role, message, image: imageBase64 };
+
+                                if (typeof google !== 'undefined' && google.script) {
+                                    google.script.run
+                                        .withSuccessHandler(onSuccess)
+                                        .withFailureHandler(onFailure)
+                                        .saveGuestbook(payload);
+                                } else {
+                                    if (typeof GAS_WEB_APP_URL === 'undefined' || !GAS_WEB_APP_URL) {
+                                        onFailure("Missing Web App URL");
+                                        return;
+                                    }
+
+                                    fetch(GAS_WEB_APP_URL, {
+                                        method: 'POST',
+                                        body: JSON.stringify(payload)
+                                    })
+                                        .then(response => response.json())
+                                        .then(result => {
+                                            if (result.result === 'success') onSuccess();
+                                            else onFailure(result.error);
+                                        })
+                                        .catch(onFailure);
+                                }
+
+                                function onSuccess() {
+                                    const list = document.getElementById('guestbook-list');
+                                    // Remove empty state if exists
+                                    if (list.querySelector('.fa-pen-alt')) list.innerHTML = '';
+
+                                    // For immediate feedback, we might not have the real URL yet if we just uploaded it
+                                    // So we use the base64 preview if available, or just wait for refresh
+                                    // But to keep it simple and consistent, we can use the base64 for local display
+                                    const div = createGuestbookItem(name, role, message, new Date(), 0, imageBase64);
+
+                                    // Animation for new item
+                                    div.style.opacity = '0';
+                                    div.style.transform = 'scale(0.8) rotate(0deg)';
+                                    list.prepend(div);
+
+                                    // Trigger reflow
+                                    void div.offsetWidth;
+
+                                    div.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                                    div.style.opacity = '1';
+                                    div.style.transform = `scale(1) rotate(${Math.random() * 4 - 2}deg)`;
+
+                                    document.getElementById('guestbook-form').reset();
+                                    clearImage(); // Clear preview
+
+                                    btn.disabled = false;
+                                    btn.innerHTML = '<i class="fas fa-check"></i> เรียบร้อย!';
+                                    setTimeout(() => btn.innerHTML = originalBtnContent, 2000);
+                                }
+
+                                function onFailure(error) {
+                                    console.error('Error:', error);
+                                    // Check for profanity error specifically if possible, or just show the message
+                                    const errorMsg = error.message || error;
+                                    alert('เกิดข้อผิดพลาด: ' + errorMsg);
+                                    btn.disabled = false;
+                                    btn.innerHTML = originalBtnContent;
+                                }
+                            }
+
+                            // Image Helper Functions
+                            function previewImage(input) {
+                                const container = document.getElementById('image-preview-container');
+                                const img = document.getElementById('image-preview');
+
+                                if (input.files && input.files[0]) {
+                                    const reader = new FileReader();
+                                    reader.onload = function (e) {
+                                        img.src = e.target.result;
+                                        container.classList.remove('hidden');
+                                    }
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                            }
+
+                            function clearImage() {
+                                const input = document.getElementById('gb-image');
+                                const container = document.getElementById('image-preview-container');
+                                input.value = '';
+                                container.classList.add('hidden');
+                            }
+
+                            function resizeImage(file) {
+                                return new Promise((resolve, reject) => {
+                                    const reader = new FileReader();
+                                    reader.readAsDataURL(file);
+                                    reader.onload = (event) => {
+                                        const img = new Image();
+                                        img.src = event.target.result;
+                                        img.onload = () => {
+                                            const canvas = document.createElement('canvas');
+                                            const MAX_WIDTH = 800;
+                                            const MAX_HEIGHT = 800;
+                                            let width = img.width;
+                                            let height = img.height;
+
+                                            if (width > height) {
+                                                if (width > MAX_WIDTH) {
+                                                    height *= MAX_WIDTH / width;
+                                                    width = MAX_WIDTH;
+                                                }
+                                            } else {
+                                                if (height > MAX_HEIGHT) {
+                                                    width *= MAX_HEIGHT / height;
+                                                    height = MAX_HEIGHT;
+                                                }
+                                            }
+
+                                            canvas.width = width;
+                                            canvas.height = height;
+                                            const ctx = canvas.getContext('2d');
+                                            ctx.drawImage(img, 0, 0, width, height);
+                                            resolve(canvas.toDataURL('image/jpeg', 0.7)); // Compress to 70% quality
+                                        };
+                                        img.onerror = (err) => reject(err);
+                                    };
+                                    reader.onerror = (err) => reject(err);
+                                });
+                            }
+                        </script>
