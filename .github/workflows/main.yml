@@ -1,0 +1,41 @@
+name: CI/CD Pipeline # ชื่อของ Workflow ที่จะแสดงใน GitHub Actions tab
+
+# กำหนด Event ที่จะทำให้ Workflow นี้ทำงาน
+on:
+  push:
+    branches: [ "main" ] # รันเมื่อมีการ push code เข้า branch main
+  pull_request:
+    branches: [ "main" ] # รันเมื่อมีการเปิด Pull Request เข้า branch main
+
+# งานที่จะให้ระบบทำ (Jobs)
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # ระบบปฏิบัติการจำลองที่จะใช้รัน (Runner)
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x] # รันเทสบน Node.js หลายเวอร์ชันพร้อมกัน
+
+    steps:
+    # 1. ดึง Code ล่าสุดมาจาก Repository
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # 2. ติดตั้ง Node.js ตามเวอร์ชันที่ระบุใน matrix
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm' # เปิด cache เพื่อให้ install เร็วขึ้นในครั้งถัดไป
+
+    # 3. ติดตั้ง Dependencies
+    - name: Install dependencies
+      run: npm ci # แนะนำให้ใช้ npm ci แทน npm install ใน CI environment
+
+    # 4. รันคำสั่ง Build (ถ้ามี)
+    - name: Build
+      run: npm run build --if-present
+
+    # 5. รัน Unit Test
+    - name: Run Tests
+      run: npm test
